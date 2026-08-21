@@ -41,6 +41,7 @@ Guidance for coding agents. **Default workspace:** `{primary-path}` unless the t
 5. **i18n** — user strings in message files, all locales
 6. **Lint clean** — `pnpm lint` passes; fix with `pnpm lint:fix` before finishing
 7. **No secrets** in code, docs, or commits — use env vars
+8. **UI composition** (frontend) — thin routes; prefer children/slots and compound components over boolean props — see `{docs/ui-patterns or architecture}`
 
 ## Fast context
 

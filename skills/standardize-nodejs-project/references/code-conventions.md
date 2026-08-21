@@ -35,9 +35,14 @@ Universal TypeScript/JavaScript conventions for Node.js projects. Enforce via ES
 - Feature-level `index.ts` as public API is fine
 - Avoid deep barrel chains that re-export entire subtrees (hurts tree-shaking in Vite/Webpack) — import directly for heavy modules
 
-## React / UI patterns
+## Frontend UI patterns
 
-- Thin route files — delegate to feature screens or page components
+Shared UI rules for React, Next.js, Vite + React, Expo, and SvelteKit. Full guide: [ui-composition.md](ui-composition.md).
+
+- **Composition over configuration** — assemble screens from small components; avoid boolean prop matrices (`isAdmin`, `showFooter`, …)
+- **Thin route files** — routes/pages/screens compose feature components; minimal logic in the shell
+- **Compound components** when a block has shared state and optional sections (dialog, card, menu) — prefer named subcomponents or slots over `renderX` props
+- **Layout shells stay dumb** — providers and structure in root layout / `App.tsx`; domain logic in features
 - Schemas in dedicated files (e.g. `schemas/*.schema.ts` with Zod) — not inline in components
 - Types shared across files: `types/*.types.ts`
 - Reuse existing UI primitives before creating new ones

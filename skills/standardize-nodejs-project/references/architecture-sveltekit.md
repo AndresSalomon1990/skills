@@ -22,6 +22,16 @@ Document in `docs/architecture.md` (or AGENTS.md if small):
 - Client-safe code in `src/lib/shared/**`
 - Route files stay thin
 
+## UI composition
+
+See [ui-composition.md](ui-composition.md). SvelteKit-specific:
+
+- **`+page.svelte` / `+layout.svelte`** compose feature components — minimal script; no business rules in the route file when avoidable
+- **Slots:** default `<slot />` and named slots for layout composition (sidebar, actions, empty states)
+- **Svelte 5:** snippet props and `{@render children?.()}` for flexible inner UI — same role as React `children` and compound sections
+- **Compound-style folders:** `components/dialog/dialog-content.svelte` + barrel export — callers compose `<Dialog><DialogContent>…</DialogContent></Dialog>` instead of prop-heavy single files
+- **`+layout.svelte`** holds shared chrome; pages pass content via slots or composed child components
+
 ## Tooling specifics
 
 - Prettier: `prettier-plugin-svelte` + optional Tailwind plugin
