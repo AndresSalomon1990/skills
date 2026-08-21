@@ -17,7 +17,15 @@ npx skills add AndresSalomon1990/skills --skill <skill-name>
 Install globally (available across all projects):
 
 ```bash
-npx skills add AndresSalomon1990/skills --skill <skill-name> -g -y
+npx skills add AndresSalomon1990/skills --skill <skill-name> -g -a cursor -y
+```
+
+Specify `-a cursor` (or your agent) with `-g`. Without it, the CLI may try every detected agent — some targets (e.g. PromptScript) do not support global install and the command can fail or print a misleading error even when the skill did install.
+
+For most projects, prefer **project-level** install (no `-g`):
+
+```bash
+npx skills add AndresSalomon1990/skills --skill <skill-name> -a cursor -y
 ```
 
 Search the ecosystem:
@@ -40,7 +48,7 @@ npx skills find <query> --owner AndresSalomon1990
    npx skills init skills/my-new-skill
    ```
 
-2. Edit `skills/my-new-skill/SKILL.md` — see [AGENTS.md](AGENTS.md) for conventions.
+2. Edit `skills/my-new-skill/SKILL.md` - see [AGENTS.md](AGENTS.md) for conventions.
 
 3. Use `skills/_template/` as reference (structure with `references/`).
 
@@ -77,16 +85,3 @@ Aligned with [Agent Skills](https://agentskills.io/) and [skills.sh](https://ski
 ## License
 
 MIT — see [LICENSE](LICENSE).
-
-## Publishing on skills.sh
-
-1. Push this repo to GitHub (`AndresSalomon1990/skills`).
-2. Users install with:
-
-   ```bash
-   npx skills add AndresSalomon1990/skills --skill standardize-nodejs-project
-   ```
-
-3. The badge above links to this repo on the skills.sh leaderboard.
-
-The [skills.sh](https://skills.sh/) index uses anonymous CLI telemetry. See [skills.sh/docs](https://skills.sh/docs) for packs and security audits.
