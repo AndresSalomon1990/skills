@@ -42,6 +42,15 @@ public/                   # Static assets (reference with /path, not bundled imp
 - External imports into a feature go through **`features/{name}/index.ts`** when using a barrel export pattern
 - Business logic (forms, tables, mutations) lives in **components** or hooks — pages only assemble layout
 
+## UI composition
+
+See [ui-composition.md](ui-composition.md). React-specific:
+
+- **Pages** (`.page.tsx`) compose feature components via `children` and layout wrappers — no fetch/form/table in the page file
+- **Compound components** for reusable blocks: export `Card`, `CardHeader`, `CardContent` from `components/card/` (or use shadcn/Radix compound APIs in `shared/components/ui/`)
+- **Providers** (QueryClient, theme, auth) compose in `App.tsx` or a dedicated `providers.tsx` — not duplicated per feature
+- Prefer splitting variants into composed trees over adding flags to a single mega-component
+
 ## Data fetching
 
 - **TanStack Query** for server state — configure defaults in `shared/lib/query-client/`

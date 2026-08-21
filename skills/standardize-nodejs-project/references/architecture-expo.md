@@ -37,6 +37,15 @@ plugins/                # config plugins — document in AGENTS.md
 - Constants/utilities outside `components/`
 - **No cross-feature imports** — use `shared/`
 
+## UI composition
+
+See [ui-composition.md](ui-composition.md). React Native / Expo:
+
+- **`app/**/*.tsx` and layouts** compose screens from `features/**/screens/` — navigation shell only in `app/`
+- **Screens compose components** via `children` and small layout wrappers (`Screen`, `ScrollContainer`) — same rules as web React
+- **Compound components** for repeated mobile patterns (bottom sheet sections, list row + trailing action) — subcomponents in a colocated folder
+- Platform-specific branches stay in leaf components, not in screen composition roots
+
 ## Environment
 
 - Document `EXPO_PUBLIC_*` (or equivalent) in `.env.example` and AGENTS.md — names only

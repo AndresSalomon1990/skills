@@ -35,6 +35,15 @@ public/
 - Route files in `app/` stay thin — compose feature components
 - Avoid `page → *-content.tsx` wrappers that only exist for one route
 
+## UI composition
+
+See [ui-composition.md](ui-composition.md). Next.js App Router:
+
+- **`layout.tsx` / `page.tsx`** compose feature UI — server components can fetch; still delegate presentation to feature components under `features/`
+- **Nested layouts** are composition boundaries — shared chrome (nav, sidebar) in parent layouts; page content from features
+- **Compound components** in `shared/components/ui/` (shadcn/Radix pattern) — feature code composes `Dialog`, `DialogContent`, `DialogFooter` instead of one dialog with ten props
+- Client boundaries: push `"use client"` to the smallest compound leaf that needs hooks, not the whole page
+
 ## Reverse proxy / deploy
 
 If deployed behind a reverse proxy (IIS, nginx, CDN):
