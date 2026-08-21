@@ -1,0 +1,13 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Node.js",
+      "description": "Standardize tooling, lint, hooks, and AGENTS.md for bootstrapped Node/TS apps (Nest, Next, SvelteKit, Vite+React, Expo).",
+      "skills": [
+        "standardize-nodejs-project"
+      ]
+    }
+  ]
+}
