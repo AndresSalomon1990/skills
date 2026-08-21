@@ -1,0 +1,33 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: validate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate skills.sh.json
+        run: node -e "JSON.parse(require('fs').readFileSync('skills.sh.json','utf8'))"
+
+      - name: Validate published skills
+        run: node scripts/validate-published-skills.mjs
+
+      - name: Skills CLI can discover repo
+        run: npx skills@latest add . --list
