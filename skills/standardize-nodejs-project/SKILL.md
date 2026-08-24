@@ -104,7 +104,7 @@ Read **one** reference based on detected framework:
 | Vite + React (SPA) | [references/architecture-vite-react.md](references/architecture-vite-react.md) |
 | Expo / React Native | [references/architecture-expo.md](references/architecture-expo.md) |
 
-Shared conventions: [references/code-conventions.md](references/code-conventions.md). Frontend UI composition (React, Next, Svelte, Expo): [references/ui-composition.md](references/ui-composition.md).
+Shared conventions: [references/code-conventions.md](references/code-conventions.md). Frontend UI composition (React, Next, Svelte, Expo): [references/ui-composition.md](references/ui-composition.md). Test layout and scripts: [references/testing.md](references/testing.md).
 
 Optional enhancements (performance, security, strict TS, ecosystem skills): [references/complementary-practices.md](references/complementary-practices.md) — suggest during Phase 4/5, do not force.
 
@@ -150,7 +150,7 @@ Report to the user:
 |----------|---------|----------------------|
 | Package manager | pnpm, npm, yarn, bun | Detect from lockfile |
 | Lint stack | eslint, biome, oxlint | Detect from config files |
-| Node engine | `>=20`, `>=22`, `>=24` | Match framework LTS docs |
+| Node engine | `>=24` (preferred), `>=22`, `>=20` | Match framework LTS docs |
 | Commitizen adapter | `cz-conventional-changelog`, `cz-git` | `cz-conventional-changelog` |
 | Tailwind | yes / no | Add tailwind Prettier plugin only if Tailwind is present |
 | Monorepo | yes / no | Per-package config + root AGENTS.md workspace map |
@@ -174,5 +174,6 @@ Report to the user:
 - Security: [references/security.md](references/security.md)
 - Code conventions: [references/code-conventions.md](references/code-conventions.md)
 - UI composition: [references/ui-composition.md](references/ui-composition.md)
+- Testing: [references/testing.md](references/testing.md)
 - AGENTS.md template: [references/agents-md.md](references/agents-md.md)
 - Complementary practices: [references/complementary-practices.md](references/complementary-practices.md)

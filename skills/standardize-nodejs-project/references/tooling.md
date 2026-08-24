@@ -158,12 +158,12 @@ See [unicorn-rules.md](unicorn-rules.md) for unicorn configuration.
 
 ## engines
 
-Set when missing — match framework LTS, not an arbitrary version:
+Set when missing — prefer **Node 24+** when the framework supports it; otherwise match framework LTS:
 
 ```json
 {
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=24.0.0"
   }
 }
 ```

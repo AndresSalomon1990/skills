@@ -32,6 +32,7 @@ test/
 - DTOs with validation (`class-validator` or Zod — stay consistent within the project)
 - OpenAPI/Swagger when the API is documented
 - E2E tests in `test/` with dedicated tsconfig
+- Unit tests: colocated `*.spec.ts` next to services/controllers (Nest default) — see [testing.md](testing.md)
 - Config via `@nestjs/config` — `.env.example` committed, `.env` gitignored
 
 ## AGENTS.md highlights

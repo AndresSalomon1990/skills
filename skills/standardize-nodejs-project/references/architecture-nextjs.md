@@ -44,6 +44,14 @@ See [ui-composition.md](ui-composition.md). Next.js App Router:
 - **Compound components** in `shared/components/ui/` (shadcn/Radix pattern) — feature code composes `Dialog`, `DialogContent`, `DialogFooter` instead of one dialog with ten props
 - Client boundaries: push `"use client"` to the smallest compound leaf that needs hooks, not the whole page
 
+## Testing
+
+See [testing.md](testing.md). Next.js:
+
+- Unit/hooks: `features/{name}/tests/` or colocated `*.test.tsx` — one pattern project-wide
+- Route handler / API integration tests: feature `tests/` or `tests/integration/` — not in Playwright e2e
+- E2E: `e2e/` at repo root; run in a separate CI job from unit tests
+
 ## Reverse proxy / deploy
 
 If deployed behind a reverse proxy (IIS, nginx, CDN):

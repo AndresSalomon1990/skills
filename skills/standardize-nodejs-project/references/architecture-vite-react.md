@@ -35,6 +35,14 @@ public/                   # Static assets (reference with /path, not bundled imp
 - **Pages** use suffix `.page.tsx` — compose feature components, minimal logic
 - Lazy-load heavy routes with `React.lazy` + `Suspense` when bundle size matters
 
+## Testing
+
+See [testing.md](testing.md). Vite + React:
+
+- Pick Pattern A (`features/{name}/tests/`) or Pattern B (colocated `*.test.tsx`) project-wide
+- Component tests: `*.test.tsx` with Testing Library + Vitest
+- E2E: top-level `e2e/` with Playwright — separate `test:e2e` script
+
 ## Feature rules
 
 - **`features/{name}/` is independent** — no imports from sibling features

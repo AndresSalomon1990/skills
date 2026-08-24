@@ -24,7 +24,9 @@ Guidance for coding agents. **Default workspace:** `{primary-path}` unless the t
 | `{pm} dev` | Development server |
 | `{pm} lint` / `{pm} lint:fix` | Lint and format |
 | `{pm} cm` | Conventional commit (if Commitizen enabled) |
-| `{pm} test` | Test runner |
+| `{pm} test` | Unit tests (CI run) |
+| `{pm} test:unit` | Unit tests (watch) |
+| `{pm} test:e2e` | E2E (when configured) |
 
 ## What lives where
 
@@ -42,6 +44,7 @@ Guidance for coding agents. **Default workspace:** `{primary-path}` unless the t
 6. **Lint clean** — `pnpm lint` passes; fix with `pnpm lint:fix` before finishing
 7. **No secrets** in code, docs, or commits — use env vars
 8. **UI composition** (frontend) — thin routes; prefer children/slots and compound components over boolean props — see `{docs/ui-patterns or architecture}`
+9. **Tests** — follow project layout (module `tests/` or colocated); separate unit from e2e — see `{docs/architecture or testing}`
 
 ## Fast context
 

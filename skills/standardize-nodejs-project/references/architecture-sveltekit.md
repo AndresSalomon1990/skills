@@ -32,6 +32,16 @@ See [ui-composition.md](ui-composition.md). SvelteKit-specific:
 - **Compound-style folders:** `components/dialog/dialog-content.svelte` + barrel export — callers compose `<Dialog><DialogContent>…</DialogContent></Dialog>` instead of prop-heavy single files
 - **`+layout.svelte`** holds shared chrome; pages pass content via slots or composed child components
 
+## Testing
+
+See [testing.md](testing.md). SvelteKit-specific:
+
+- **Pattern A (recommended):** sibling `tests/` per feature, module, or server area — unit tests kept out of `components/`, `utilities/`, and `services/` folders
+- **Vitest dual projects:** Node for `*.test.ts`; browser project for `*.svelte.test.ts` when component tests are needed
+- **Scripts:** `test:unit` (watch), `test` (single CI run — runner-specific flags)
+- **E2E:** top-level `e2e/` — never under `src/lib/` or `routes/`
+- Document test placement in `docs/architecture.md` or per-module `*.md` files
+
 ## Tooling specifics
 
 - Prettier: `prettier-plugin-svelte` + optional Tailwind plugin
@@ -46,7 +56,8 @@ See [ui-composition.md](ui-composition.md). SvelteKit-specific:
 | `check` | svelte-check + types |
 | `lint` / `lint:fix` | Lint + format |
 | `cm` | Conventional commit (if Commitizen enabled) |
-| `test:unit` | Vitest or project test runner |
+| `test:unit` | Unit tests (watch) |
+| `test` | Unit tests single run (CI) |
 
 ## AGENTS.md style
 
