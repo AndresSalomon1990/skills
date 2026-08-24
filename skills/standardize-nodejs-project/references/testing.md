@@ -1,5 +1,7 @@
 # Testing organization
 
+**Runner-agnostic:** folder layout, naming, and separation rules apply whether the project uses Vitest, Jest, Mocha, `node:test`, or similar. Stack sections mention Vitest or Jest where they are common defaults — document the actual runner and scripts in AGENTS.md.
+
 Separate **test kinds**, **folders**, and **scripts** so unit, component, integration, and e2e tests do not mix. Pick one layout pattern per project and document it in AGENTS.md — do not mix colocated and module-scoped `tests/` folders without a documented reason.
 
 ## Test kinds
@@ -16,7 +18,7 @@ Use different directories and npm scripts for each kind. Run unit tests on every
 ## Naming
 
 - **One suffix per project:** `*.test.ts` **or** `*.spec.ts` — not both. Document the choice in AGENTS.md.
-  - Frontend / Vitest projects often standardize on `*.test.ts`
+  - Many frontend projects standardize on `*.test.ts`
   - NestJS convention is `*.spec.ts` for unit tests and `*.e2e-spec.ts` for e2e
 - **File names mirror the unit under test:** `money.ts` → `money.test.ts`, `parse-movement-draft.ts` → `parse-movement-draft.test.ts`
 - **Component tests:** `*.svelte.test.ts` or `*.test.tsx` so the runner can route them to a browser project
@@ -67,22 +69,22 @@ Use when the team prefers tests beside implementation. Still keep **e2e** and **
 
 **Pick A or B for unit tests — do not mix both in the same module.**
 
-## SvelteKit + Vitest
+## SvelteKit (example: Vitest)
 
-Typical dual-project setup in `vite.config.ts`:
+Typical dual-project setup in `vite.config.ts` when using Vitest:
 
 | Project | Includes | Environment |
 |---------|----------|-------------|
 | `server` | `src/**/*.{test,spec}.{js,ts}` excluding `*.svelte.*` | `node` |
 | `client` | `src/**/*.svelte.{test,spec}.{js,ts}` | browser (e.g. Playwright provider) |
 
-Recommended Vitest options to document:
+Runner-specific options to document (Vitest example):
 
 - `expect: { requireAssertions: true }` — every test must assert
-- `test:unit` — watch mode (`vitest`)
-- `test` — CI single run (`vitest --run`)
+- `test:unit` — watch mode (`vitest`, `jest --watch`, etc.)
+- `test` — CI single run (`vitest --run`, `jest --ci`, etc.)
 
-Component browser tests may be zero at first — configure the client project anyway so the convention is ready.
+Component browser tests may be zero at first — configure the client project anyway so the convention is ready. Jest or other runners: mirror the same include/exclude split in the runner config.
 
 ## React / Next.js / Expo
 
@@ -104,7 +106,7 @@ Document in AGENTS.md:
 | Script | Purpose |
 |--------|---------|
 | `test:unit` | Fast unit tests (watch in dev) |
-| `test` | Full unit run for CI (`--run`) |
+| `test` | Full unit run for CI — runner-specific (`vitest --run`, `jest --ci`, `mocha`, etc.) |
 | `test:e2e` | E2E only — separate CI job when slow |
 | `test:integration` | Optional — when integration suite exists |
 
@@ -116,7 +118,7 @@ Document in AGENTS.md:
 
 Include:
 
-- Test runner (Vitest, Jest, Playwright)
+- Test runner (Vitest, Jest, Mocha, `node:test`, Playwright, etc.)
 - Layout pattern (A or B) and suffix (`*.test.ts` vs `*.spec.ts`)
 - Commands table (`test`, `test:unit`, `test:e2e`)
 - Where to add a new test when touching `features/foo/` or `server/bar/`

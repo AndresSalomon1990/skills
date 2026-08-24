@@ -150,7 +150,7 @@ Report to the user:
 |----------|---------|----------------------|
 | Package manager | pnpm, npm, yarn, bun | Detect from lockfile |
 | Lint stack | eslint, biome, oxlint | Detect from config files |
-| Node engine | `>=20`, `>=22`, `>=24` | Match framework LTS docs |
+| Node engine | `>=24` (preferred), `>=22`, `>=20` | Match framework LTS docs |
 | Commitizen adapter | `cz-conventional-changelog`, `cz-git` | `cz-conventional-changelog` |
 | Tailwind | yes / no | Add tailwind Prettier plugin only if Tailwind is present |
 | Monorepo | yes / no | Per-package config + root AGENTS.md workspace map |

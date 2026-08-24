@@ -38,7 +38,7 @@ See [testing.md](testing.md). SvelteKit-specific:
 
 - **Pattern A (recommended):** sibling `tests/` per feature, module, or server area — unit tests kept out of `components/`, `utilities/`, and `services/` folders
 - **Vitest dual projects:** Node for `*.test.ts`; browser project for `*.svelte.test.ts` when component tests are needed
-- **Scripts:** `test:unit` (watch), `test` (`vitest --run` for CI)
+- **Scripts:** `test:unit` (watch), `test` (single CI run — runner-specific flags)
 - **E2E:** top-level `e2e/` — never under `src/lib/` or `routes/`
 - Document test placement in `docs/architecture.md` or per-module `*.md` files
 
@@ -56,8 +56,8 @@ See [testing.md](testing.md). SvelteKit-specific:
 | `check` | svelte-check + types |
 | `lint` / `lint:fix` | Lint + format |
 | `cm` | Conventional commit (if Commitizen enabled) |
-| `test:unit` | Vitest watch mode |
-| `test` | Vitest single run (CI) |
+| `test:unit` | Unit tests (watch) |
+| `test` | Unit tests single run (CI) |
 
 ## AGENTS.md style
 
