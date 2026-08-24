@@ -64,5 +64,10 @@ After every change:
 
 ## Testing
 
-- Unit tests colocated or in `test/` per framework convention
-- E2E in `test/` (Nest) or `e2e/` (frontend) — match existing layout
+Full guide: [testing.md](testing.md).
+
+- **Separate kinds** — unit, component, integration, and e2e use different folders and scripts; do not mix slow e2e into unit runs
+- **One layout per project** — module-scoped `tests/` folders (Pattern A) **or** colocated `*.test.ts` / `*.spec.ts` (Pattern B); do not mix without documenting why
+- **One suffix per project** — `*.test.ts` or `*.spec.ts`; file names mirror the unit under test
+- **NestJS:** colocated `*.spec.ts`; e2e in top-level `test/`
+- **Frontend e2e:** top-level `e2e/` with a dedicated `test:e2e` script
