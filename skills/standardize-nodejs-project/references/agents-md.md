@@ -85,7 +85,8 @@ For domain-heavy apps, add a root **`CONTEXT.md`** glossary (terms agents should
 
 ## Maintenance
 
-- Update when structure or commands change
+- Update when structure, commands, or product scope change
+- **Living docs** — update `docs/architecture.md`, Mermaid diagrams, and affected guides in the same PR as code changes
 - Add team learnings after non-trivial debugging
 - Do not duplicate long architecture docs — link instead
 - Index external docs (Figma, Notion) in fast-context — see [documentation.md](documentation.md)

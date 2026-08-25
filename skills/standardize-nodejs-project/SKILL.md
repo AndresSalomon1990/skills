@@ -120,6 +120,7 @@ Read [references/documentation.md](references/documentation.md). **Do not create
 2. Infer project shape (full-stack, front-only, API-only, monorepo, library).
 3. Present a **short menu** of 2–4 suggested additions the project lacks — user approves before writing.
 4. Link new or existing docs from `AGENTS.md` fast-context table; never duplicate guide bodies in `AGENTS.md`.
+5. Remind the user that docs are **living** — update architecture, Mermaid diagrams, and guides when the codebase changes; prefer Mermaid for new diagrams.
 
 Skip this phase when the user only asked for tooling, or when README + minimal `AGENTS.md` already suffice.
 
