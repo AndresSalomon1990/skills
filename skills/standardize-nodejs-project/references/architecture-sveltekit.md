@@ -10,7 +10,7 @@ src/
   lib/
     server/             # Server-only (db, auth, services)
     shared/             # Isomorphic utilities
-docs/                   # Long-form guides (link from AGENTS.md)
+docs/                   # Long-form guides — see documentation.md for suggested layout
 static/
 ```
 
@@ -61,7 +61,7 @@ See [testing.md](testing.md). SvelteKit-specific:
 
 ## AGENTS.md style
 
-Keep root AGENTS.md short — index into `docs/` for long guides. List optional project skills path if using `.agents/skills/`.
+Keep root AGENTS.md short — index into `docs/` for long guides. See [documentation.md](documentation.md) for optional layers (product, architecture, design, plans, glossary). List optional project skills path if using `.agents/skills/`.
 
 ## Optional integrations
 

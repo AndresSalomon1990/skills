@@ -36,6 +36,7 @@ Standardization Progress:
 - [ ] Phase 1: Shared tooling (.editorconfig, format/lint, Husky)
 - [ ] Phase 2: Editor tooling (hooks/scripts first; optional `.vscode/` or `.zed/`)
 - [ ] Phase 3: Architecture + folder conventions (framework-specific)
+- [ ] Phase 3b: Documentation audit (suggest gaps — optional, user-approved)
 - [ ] Phase 4: AGENTS.md (project context for agents)
 - [ ] Phase 5: Verify (lint, format, hooks)
 ```
@@ -48,6 +49,7 @@ Read existing config before writing files:
 - `eslint.config.*`, oxlint config, existing lint scripts
 - `.husky/*`, `lint-staged` in `package.json`
 - `.vscode/settings.json`, `.zed/settings.json` (if present), `AGENTS.md`, `.env.example`, `.gitignore`
+- **Documentation:** `docs/`, `CONTEXT.md`, co-located `src/**/*.md`, external links (Figma, Notion, wiki) — see [references/documentation.md](references/documentation.md)
 - Framework layout (`src/modules/` Nest, `app/` Next, `src/routes/` SvelteKit, `src/features/` Vite+React, `features/` Expo)
 
 **Adapt, don't overwrite blindly.** Merge with existing rules; skip steps the project already satisfies. Note deltas for the user.
@@ -110,6 +112,18 @@ Optional enhancements (performance, security, strict TS, ecosystem skills): [ref
 
 Do not restructure working code unless the user asked — document the target layout in AGENTS.md and apply incrementally to new files.
 
+### Phase 3b: Documentation (optional)
+
+Read [references/documentation.md](references/documentation.md). **Do not create a full `docs/` tree by default.**
+
+1. Inventory existing docs and external sources (product, architecture, design, glossary, plans).
+2. Infer project shape (full-stack, front-only, API-only, monorepo, library).
+3. Present a **short menu** of 2–4 suggested additions the project lacks — user approves before writing.
+4. Link new or existing docs from `AGENTS.md` fast-context table; never duplicate guide bodies in `AGENTS.md`.
+5. Remind the user that docs are **living** — update architecture, Mermaid diagrams, and guides when the codebase changes; prefer Mermaid for new diagrams.
+
+Skip this phase when the user only asked for tooling, or when README + minimal `AGENTS.md` already suffice.
+
 ### Phase 4: AGENTS.md
 
 Create or extend `AGENTS.md` at the project root using [references/agents-md.md](references/agents-md.md).
@@ -119,8 +133,9 @@ Include:
 - Stack + key commands (`dev`, `lint`, `test`, `cm`)
 - Where code lives (features vs shared, modules vs controllers)
 - Non-negotiable rules (English comments, one component per file, feature isolation)
-- Fast-context table (paths agents should read first)
+- Fast-context table (paths agents should read first — include `docs/README.md` and external links when used)
 - Optional **Team learnings** section (newest-first, living document — redact secrets)
+- Pointer to `docs/` index when long-form guides exist — see [references/documentation.md](references/documentation.md)
 
 Keep AGENTS.md concise; link to `docs/` for long guides. Write for agents: short pointers, not essays ([Agent Skills spec](https://agentskills.io/)).
 
@@ -142,6 +157,7 @@ Report to the user:
 - Linter stack chosen and any unicorn/Biome/Oxlint tradeoffs
 - Framework-specific choices made
 - Editor files added vs skipped (and why)
+- Documentation gaps suggested vs skipped (and external sources noted)
 - Recommended next steps (CI lint/build, complementary practices)
 
 ## Variables to adapt per project
@@ -175,5 +191,6 @@ Report to the user:
 - Code conventions: [references/code-conventions.md](references/code-conventions.md)
 - UI composition: [references/ui-composition.md](references/ui-composition.md)
 - Testing: [references/testing.md](references/testing.md)
+- Project documentation: [references/documentation.md](references/documentation.md)
 - AGENTS.md template: [references/agents-md.md](references/agents-md.md)
 - Complementary practices: [references/complementary-practices.md](references/complementary-practices.md)
