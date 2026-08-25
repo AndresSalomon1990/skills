@@ -259,6 +259,13 @@ Pre-commit is not a substitute for CI — hooks can be skipped with `--no-verify
 
 ## Documentation and agent ergonomics
 
+Full guide: [documentation.md](documentation.md). Summary:
+
+- **`AGENTS.md` = index** — link to `docs/` or external sources; do not duplicate long guides
+- **Audit first** — suggest architecture, product, design, glossary, and guides based on project shape; user approves before creating files
+- **External docs count** — Figma, Notion, wiki URLs belong in the fast-context table
+- **Plans / session notes** — `docs/plans/` if used; mark non-normative
+
 From Anthropic / Agent Skills best practices:
 
 - One workflow per skill; compose skills rather than mega-docs

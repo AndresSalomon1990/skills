@@ -50,10 +50,14 @@ Guidance for coding agents. **Default workspace:** `{primary-path}` unless the t
 
 | Goal | Where to look |
 |------|---------------|
+| Docs index | `{docs/README.md}` or external wiki/Notion link |
+| Product / scope | `{docs/product.md or URL}` |
+| Architecture / ERD | `{docs/architecture.md}` |
+| Design / UI | `{docs/design/ or Figma URL}` |
+| Domain glossary | `{CONTEXT.md or docs/product.md#glossary}` |
 | API routes / endpoints | `{path}` |
 | Auth / routing | `{path}` |
 | Shared UI | `{path}` |
-| Architecture | `{docs/architecture.md}` |
 
 ## Team learnings (living document)
 
@@ -84,4 +88,5 @@ For domain-heavy apps, add a root **`CONTEXT.md`** glossary (terms agents should
 - Update when structure or commands change
 - Add team learnings after non-trivial debugging
 - Do not duplicate long architecture docs — link instead
+- Index external docs (Figma, Notion) in fast-context — see [documentation.md](documentation.md)
 - Optional improvements catalog: [complementary-practices.md](complementary-practices.md)
