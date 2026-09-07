@@ -38,6 +38,7 @@ npx skills find <query> --owner AndresSalomon1990
 
 | Skill | Description |
 |-------|-------------|
+| [`laws-of-ux`](skills/laws-of-ux/SKILL.md) | UX psychology from [Laws of UX](https://lawsofux.com) — greenfield design and audits of existing interfaces |
 | [`standardize-nodejs-project`](skills/standardize-nodejs-project/SKILL.md) | Tooling, lint, hooks, optional editor config, and AGENTS.md for bootstrapped Node/TS apps |
 
 ## Create a new skill
