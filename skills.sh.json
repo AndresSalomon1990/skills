@@ -3,6 +3,13 @@
   "notGrouped": "bottom",
   "groupings": [
     {
+      "title": "UX & Design",
+      "description": "Psychology-backed UX principles for designing and reviewing interfaces.",
+      "skills": [
+        "laws-of-ux"
+      ]
+    },
+    {
       "title": "Node.js",
       "description": "Standardize tooling, lint, hooks, and AGENTS.md for bootstrapped Node/TS apps (Nest, Next, SvelteKit, Vite+React, Expo).",
       "skills": [
