@@ -11,7 +11,7 @@ These work in Cursor, VS Code, Claude Code, Zed, OpenCode, Antigravity, terminal
 | `.editorconfig` | Indent, charset, final newline — [tooling.md](tooling.md) |
 | `package.json` scripts | `lint`, `lint:fix`, `format`, `typecheck` |
 | Husky + lint-staged | Format/lint **staged** files on commit |
-| CI | Full `lint` + `build` on every PR |
+| Full `lint` + `build` on every PR | See [ci-pipeline.md](ci-pipeline.md) — provider-agnostic quality gate |
 
 Document the commands in `AGENTS.md`:
 
