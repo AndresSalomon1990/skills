@@ -18,6 +18,7 @@ Before creating files, inventory:
 | Look for | Where |
 |----------|--------|
 | Agent index | `AGENTS.md` |
+| Project learnings | `LEARNINGS.md`, `docs/learnings.md` |
 | Human readme | `README.md` |
 | In-repo docs | `docs/`, `doc/`, `wiki/` |
 | Domain glossary | `CONTEXT.md`, glossary section in product doc |
@@ -54,7 +55,7 @@ Present suggestions as a **menu** — user picks what to add now vs later. Do no
 | **Glossary** | Project-specific terms | `CONTEXT.md` or section in `product.md` | Domain language agents must reuse |
 | **ADRs** | Why a decision was made | `docs/adr/NNNN-title.md` | Teams needing decision traceability |
 | **Co-located** | Implementation detail beside code | `src/**/FEATURE.md` | Large modules (link from index) |
-| **Learnings** | Symptom → fix chronology | `AGENTS.md` section or `guides/setup-log.md` | After non-trivial debugging |
+| **Learnings** | Symptom → fix chronology | **`LEARNINGS.md`** (root; linked from `AGENTS.md`) | Any non-trivial app — append after hard bugs |
 
 ### Source-of-truth hierarchy (on conflict)
 
@@ -134,7 +135,7 @@ When truth lives outside the repo:
 | Non-negotiable agent rules | Per-topic guides |
 | Fast-context links (paths + URLs) | Mermaid diagrams, ERDs |
 | Critical gotchas (one-liners) | Design specs, screen inventories |
-| Optional team learnings (newest-first) | Dated plans, ADRs |
+| Link to `LEARNINGS.md` (one line in fast-context) | Learnings body, dated plans, ADRs |
 
 See [agents-md.md](agents-md.md) for the template.
 
@@ -174,5 +175,6 @@ When the user asks to standardize documentation:
 ## Related
 
 - AGENTS.md template: [agents-md.md](agents-md.md)
+- LEARNINGS.md template: [learnings-md.md](learnings-md.md)
 - Security (no secrets in docs): [security.md](security.md)
 - Optional extras (ADR folder, CONTEXT.md): [complementary-practices.md](complementary-practices.md)

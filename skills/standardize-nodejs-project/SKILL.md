@@ -37,7 +37,7 @@ Standardization Progress:
 - [ ] Phase 2: Editor tooling (hooks/scripts first; optional `.vscode/` or `.zed/`)
 - [ ] Phase 3: Architecture + folder conventions (framework-specific)
 - [ ] Phase 3b: Documentation audit (suggest gaps — optional, user-approved)
-- [ ] Phase 4: AGENTS.md (project context for agents)
+- [ ] Phase 4: AGENTS.md + LEARNINGS.md (project context for agents)
 - [ ] Phase 5: Verify (lint, format, hooks)
 ```
 
@@ -48,7 +48,7 @@ Read existing config before writing files:
 - `.editorconfig`, `.prettierrc*` / `prettier.config.*` / `biome.json`
 - `eslint.config.*`, oxlint config, existing lint scripts
 - `.husky/*`, `lint-staged` in `package.json`
-- `.vscode/settings.json`, `.zed/settings.json` (if present), `AGENTS.md`, `.env.example`, `.gitignore`
+- `.vscode/settings.json`, `.zed/settings.json` (if present), `AGENTS.md`, `LEARNINGS.md`, `.env.example`, `.gitignore`
 - **Documentation:** `docs/`, `CONTEXT.md`, co-located `src/**/*.md`, external links (Figma, Notion, wiki) — see [references/documentation.md](references/documentation.md)
 - Framework layout (`src/modules/` Nest, `app/` Next, `src/routes/` SvelteKit, `src/features/` Vite+React, `features/` Expo)
 
@@ -124,20 +124,28 @@ Read [references/documentation.md](references/documentation.md). **Do not create
 
 Skip this phase when the user only asked for tooling, or when README + minimal `AGENTS.md` already suffice.
 
-### Phase 4: AGENTS.md
+### Phase 4: AGENTS.md + LEARNINGS.md
 
 Create or extend `AGENTS.md` at the project root using [references/agents-md.md](references/agents-md.md).
 
-Include:
+Include in **AGENTS.md**:
 
 - Stack + key commands (`dev`, `lint`, `test`, `cm`)
 - Where code lives (features vs shared, modules vs controllers)
 - Non-negotiable rules (English comments, one component per file, feature isolation)
-- Fast-context table (paths agents should read first — include `docs/README.md` and external links when used)
-- Optional **Team learnings** section (newest-first, living document — redact secrets)
+- Fast-context table (paths agents should read first — include `LEARNINGS.md`, `docs/README.md`, and external links when used)
 - Pointer to `docs/` index when long-form guides exist — see [references/documentation.md](references/documentation.md)
 
 Keep AGENTS.md concise; link to `docs/` for long guides. Write for agents: short pointers, not essays ([Agent Skills spec](https://agentskills.io/)).
+
+**LEARNINGS.md** (recommended for any app with ongoing development):
+
+1. Check Phase 0 audit — skip if an equivalent learnings file already exists; merge format instead of duplicating
+2. Create root **`LEARNINGS.md`** using [references/learnings-md.md](references/learnings-md.md)
+3. Link it from the `AGENTS.md` fast-context table — **do not** embed learnings entries in `AGENTS.md`
+4. Purpose: symptom → fix chronology, newest first, so the team and agents avoid repeating past mistakes
+
+Do not use `MEMORIES.md` — that name collides with agent memory stores in some tools.
 
 ### Phase 5: Verify
 

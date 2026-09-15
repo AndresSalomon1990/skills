@@ -55,18 +55,19 @@ Guidance for coding agents. **Default workspace:** `{primary-path}` unless the t
 | Architecture / ERD | `{docs/architecture.md}` |
 | Design / UI | `{docs/design/ or Figma URL}` |
 | Domain glossary | `{CONTEXT.md or docs/product.md#glossary}` |
+| Past bugs & gotchas | `LEARNINGS.md` |
 | API routes / endpoints | `{path}` |
 | Auth / routing | `{path}` |
 | Shared UI | `{path}` |
-
-## Team learnings (living document)
-
-**Keep updated.** Newest first. 2–5 lines: symptom → fix → `path`. Redact secrets and PII.
-
-Entries:
-
-- _{date} — {title}:_ {summary}. **`path/to/file`**.
 ```
+
+## LEARNINGS.md (recommended)
+
+Create root **`LEARNINGS.md`** for accumulated project learnings — symptom → fix chronology, newest first. Keeps `AGENTS.md` lean and prevents repeating past mistakes.
+
+- Template: [learnings-md.md](learnings-md.md)
+- Link from the fast-context table above — do not paste entries into `AGENTS.md`
+- Skip if the project already has an equivalent (`LEARNINGS.md`, `docs/learnings.md`) — merge format, do not fork
 
 ## Monorepo variant
 
@@ -87,7 +88,7 @@ For domain-heavy apps, add a root **`CONTEXT.md`** glossary (terms agents should
 
 - Update when structure, commands, or product scope change
 - **Living docs** — update `docs/architecture.md`, Mermaid diagrams, and affected guides in the same PR as code changes
-- Add team learnings after non-trivial debugging
+- Append to `LEARNINGS.md` after non-trivial debugging
 - Do not duplicate long architecture docs — link instead
 - Index external docs (Figma, Notion) in fast-context — see [documentation.md](documentation.md)
 - Optional improvements catalog: [complementary-practices.md](complementary-practices.md)
