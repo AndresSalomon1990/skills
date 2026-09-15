@@ -30,7 +30,7 @@ Rules for agents and humans standardizing any public or private repo.
 ## AGENTS.md content
 
 - Describe architecture and commands, not production infrastructure secrets
-- **Team learnings** may reference file paths and error messages — redact customer data and credentials
+- **`LEARNINGS.md`** may reference file paths and error messages — redact customer data and credentials
 - Monorepo maps: folder names only, not deploy credentials
 
 ## If secrets were exposed

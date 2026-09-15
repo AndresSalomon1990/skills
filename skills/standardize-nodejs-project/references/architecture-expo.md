@@ -64,9 +64,9 @@ See [testing.md](testing.md). Expo / React Native:
 - Prettier + Tailwind plugin when using NativeWind or similar
 - Set `packageManager` in `package.json` when using pnpm
 
-## Team learnings
+## LEARNINGS.md
 
-Mobile projects benefit from a **Team learnings** section in AGENTS.md (platform bugs, SDK upgrades, keyboard issues) — newest-first, redact secrets and customer data.
+Mobile projects benefit from root **`LEARNINGS.md`** (platform bugs, SDK upgrades, keyboard issues) — newest-first, linked from `AGENTS.md`. Redact secrets and customer data. Template: [learnings-md.md](learnings-md.md).
 
 ## Native modules
 
