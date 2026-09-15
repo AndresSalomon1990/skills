@@ -243,15 +243,7 @@ Local hooks (this skill's default):
 - lint-staged → fast feedback
 - optional `tsc --noEmit` / `tsc -b` if fast enough
 
-CI (recommend in final report):
-
-```yaml
-# illustrative — adapt to provider
-- run: pnpm install --frozen-lockfile
-- run: pnpm lint
-- run: pnpm build
-- run: pnpm test --if-present
-```
+CI quality gate (optional Phase 5b): see [ci-pipeline.md](ci-pipeline.md). Propose a provider-agnostic spec (install → lint → check → test → build → optional audit); the team implements it on GitHub Actions, GitLab CI, Bitbucket, Azure DevOps, or another host. Do not commit pipeline YAML unless the user approves.
 
 Pre-commit is not a substitute for CI — hooks can be skipped with `--no-verify`.
 

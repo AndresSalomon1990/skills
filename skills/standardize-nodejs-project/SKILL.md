@@ -39,6 +39,7 @@ Standardization Progress:
 - [ ] Phase 3b: Documentation audit (suggest gaps — optional, user-approved)
 - [ ] Phase 4: AGENTS.md + LEARNINGS.md (project context for agents)
 - [ ] Phase 5: Verify (lint, format, hooks)
+- [ ] Phase 5b: CI pipeline menu (optional, user-approved)
 ```
 
 ### Phase 0: Audit
@@ -48,6 +49,7 @@ Read existing config before writing files:
 - `.editorconfig`, `.prettierrc*` / `prettier.config.*` / `biome.json`
 - `eslint.config.*`, oxlint config, existing lint scripts
 - `.husky/*`, `lint-staged` in `package.json`
+- **CI / pipelines:** `.github/workflows/`, `.gitlab-ci.yml`, `bitbucket-pipelines.yml`, `azure-pipelines.yml`, `.circleci/`, `Jenkinsfile` — see [references/ci-pipeline.md](references/ci-pipeline.md)
 - `.vscode/settings.json`, `.zed/settings.json` (if present), `AGENTS.md`, `LEARNINGS.md`, `.env.example`, `.gitignore`
 - **Documentation:** `docs/`, `CONTEXT.md`, co-located `src/**/*.md`, external links (Figma, Notion, wiki) — see [references/documentation.md](references/documentation.md)
 - Framework layout (`src/modules/` Nest, `app/` Next, `src/routes/` SvelteKit, `src/features/` Vite+React, `features/` Expo)
@@ -159,6 +161,19 @@ pnpm lint-staged # optional manual smoke test
 
 Stage a trivial change and confirm the pre-commit hook runs.
 
+### Phase 5b: CI pipeline (optional)
+
+Read [references/ci-pipeline.md](references/ci-pipeline.md). **Do not commit pipeline config by default.**
+
+1. Use Phase 0 audit — report existing CI and which `package.json` scripts it runs
+2. Ask which Git host the team uses if not obvious from repo files (GitHub, GitLab, Bitbucket, Azure DevOps, other)
+3. Propose a **quality gate** as a short spec: install (frozen lockfile) → lint → typecheck/check → unit test → build (if applicable) → optional audit
+4. User approves before writing or editing any pipeline file
+5. Map steps to **existing npm scripts** — add missing scripts in Phase 1/3 first, not duplicate logic in YAML
+6. Document CI-relevant commands in `AGENTS.md` when they differ from local-only scripts
+
+Skip when the user only wanted local tooling, or when CI already matches the proposed gate.
+
 Report to the user:
 
 - What was added vs skipped (already present)
@@ -166,7 +181,8 @@ Report to the user:
 - Framework-specific choices made
 - Editor files added vs skipped (and why)
 - Documentation gaps suggested vs skipped (and external sources noted)
-- Recommended next steps (CI lint/build, complementary practices)
+- CI pipeline spec proposed vs skipped (provider, existing config, scripts to add)
+- Recommended next steps (complementary practices)
 
 ## Variables to adapt per project
 
@@ -201,4 +217,5 @@ Report to the user:
 - Testing: [references/testing.md](references/testing.md)
 - Project documentation: [references/documentation.md](references/documentation.md)
 - AGENTS.md template: [references/agents-md.md](references/agents-md.md)
+- CI pipeline (provider-agnostic): [references/ci-pipeline.md](references/ci-pipeline.md)
 - Complementary practices: [references/complementary-practices.md](references/complementary-practices.md)
