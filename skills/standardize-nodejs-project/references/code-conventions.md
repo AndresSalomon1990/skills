@@ -54,7 +54,9 @@ After every change:
 
 - No linter errors from the project's CLI (`pnpm lint` / Biome / Oxlint)
 - No IDE static-analysis issues when the developer uses SonarLint or equivalent — optional, not required for every editor
-- SOLID, DRY, KISS — match existing patterns over new abstractions
+- **Design principles** — DRY, KISS, SOLID, and familiar patterns; avoid over-engineering and unnecessary cognitive complexity — see [design-principles.md](design-principles.md)
+
+Apply principles to **new and changed** code. On brownfield repos, match existing structure first; do not drive-by refactor unrelated modules during standardization.
 
 ## NestJS-specific
 

@@ -69,7 +69,7 @@ Apply the stack documented in [references/tooling.md](references/tooling.md) and
 | Linter | ESLint + unicorn (default), or keep Biome/Oxlint |
 | Husky | `pre-commit` → lint-staged; optional Commitizen hook |
 | `lint-staged` | Format + lint fix on staged files |
-| Commitizen | Optional `pnpm cm` / `npm run cm` for conventional commits |
+| Commitizen | Optional `cm` via **npx-pinned** `commitizen` (not in lockfile) — see [references/tooling.md](references/tooling.md) |
 | `.env.example` | Document env var names without secrets |
 
 **ESLint path:** include `eslint-plugin-unicorn` per [references/unicorn-rules.md](references/unicorn-rules.md).
@@ -108,7 +108,9 @@ Read **one** reference based on detected framework:
 | Vite + React (SPA) | [references/architecture-vite-react.md](references/architecture-vite-react.md) |
 | Expo / React Native | [references/architecture-expo.md](references/architecture-expo.md) |
 
-Shared conventions: [references/code-conventions.md](references/code-conventions.md). Frontend UI composition (React, Next, Svelte, Expo): [references/ui-composition.md](references/ui-composition.md). Test layout and scripts: [references/testing.md](references/testing.md).
+Shared conventions: [references/code-conventions.md](references/code-conventions.md). Design principles (DRY, KISS, SOLID, avoid over-engineering): [references/design-principles.md](references/design-principles.md). Frontend UI composition (React, Next, Svelte, Expo): [references/ui-composition.md](references/ui-composition.md). Test layout and scripts: [references/testing.md](references/testing.md).
+
+When adding or reviewing code during standardization, apply design principles to new/changed files only — document target patterns in `AGENTS.md` for brownfield repos; do not impose large refactors unless the user asked.
 
 Optional enhancements (performance, security, strict TS, ecosystem skills): [references/complementary-practices.md](references/complementary-practices.md) — suggest during Phase 4/5, do not force.
 
@@ -191,7 +193,7 @@ Report to the user:
 | Package manager | pnpm, npm, yarn, bun | Detect from lockfile |
 | Lint stack | eslint, biome, oxlint | Detect from config files |
 | Node engine | `>=24` (preferred), `>=22`, `>=20` | Match framework LTS docs |
-| Commitizen adapter | `cz-conventional-changelog`, `cz-git` | `cz-conventional-changelog` |
+| Commitizen | npx-pinned `commitizen@<version>`, legacy devDeps + adapter | npx-pinned (see tooling.md) |
 | Tailwind | yes / no | Add tailwind Prettier plugin only if Tailwind is present |
 | Monorepo | yes / no | Per-package config + root AGENTS.md workspace map |
 | i18n | next-intl, paraglide, none | Document message file paths in AGENTS.md |
@@ -213,6 +215,7 @@ Report to the user:
 - Editor tooling: [references/editor-tooling.md](references/editor-tooling.md)
 - Security: [references/security.md](references/security.md)
 - Code conventions: [references/code-conventions.md](references/code-conventions.md)
+- Design principles: [references/design-principles.md](references/design-principles.md)
 - UI composition: [references/ui-composition.md](references/ui-composition.md)
 - Testing: [references/testing.md](references/testing.md)
 - Project documentation: [references/documentation.md](references/documentation.md)
